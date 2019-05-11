@@ -1,4 +1,5 @@
 import 'dart:convert';
+import 'package:hooks_examples/common/container.dart';
 import 'package:hooks_examples/todo/actions.dart';
 import 'package:hooks_examples/todo/hooks.dart';
 import 'package:provider/provider.dart';
@@ -33,8 +34,8 @@ class TodoPage extends HookWidget {
 
     return MaterialApp(
       title: 'Flutter Demo',
-      home: Scaffold(
-        body: Center(
+      home: AppContainer(
+        child: Center(
           child: Padding(
             padding: const EdgeInsets.all(32.0),
             child: Column(

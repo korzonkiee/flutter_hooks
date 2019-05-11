@@ -5,7 +5,7 @@ import 'package:geolocator/geolocator.dart';
 final initialPosition = Position(latitude: 0, longitude: 0);
 
 Position useGeolocation() {
-  final result = useState<Position>(initialPosition);
+  final position = useState<Position>(initialPosition);
 
   useEffect(() {
     print("Subscribing for position stream.");
@@ -17,7 +17,7 @@ Position useGeolocation() {
     StreamSubscription<Position> positionStream = geolocator
         .getPositionStream(locationOptions)
         .listen((Position _position) {
-      result.value = _position;
+      position.value = _position;
     });
 
     return () {
@@ -26,10 +26,10 @@ Position useGeolocation() {
     };
   }, []);
 
-  useValueChanged(result.value, (_, __) {
+  useValueChanged(position.value, (_, __) {
     print(
-        "Location changed to: ${result.value.latitude}, ${result.value.longitude}");
+        "Location changed to: ${position.value.latitude}, ${position.value.longitude}");
   });
 
-  return result.value;
+  return position.value;
 }

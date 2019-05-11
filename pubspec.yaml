@@ -24,6 +24,7 @@ dependencies:
   json_serializable: 2.2.0
   shared_preferences: ^0.5.2
   build_runner: 1.2.0
+  rxdart: 0.22.0
   flutter:
     sdk: flutter
 

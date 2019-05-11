@@ -5,6 +5,10 @@ import 'package:hooks_examples/geolocation/geolocation_page.dart';
 import 'package:hooks_examples/network/network_status_page.dart';
 import 'package:hooks_examples/todo/todo_page.dart';
 
+import 'animation/animation_page.dart';
+import 'common/centered_column.dart';
+import 'common/container.dart';
+
 void main() => runApp(MyApp());
 
 class MyApp extends StatelessWidget {
@@ -25,32 +29,34 @@ class MyHomePage extends HookWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      body: Center(
-        child: Column(
-          mainAxisAlignment: MainAxisAlignment.center,
-          crossAxisAlignment: CrossAxisAlignment.center,
-          children: <Widget>[
-            AppButton(
-              onPressed: () {
-                _goTo(GeolocationPage(), context);
-              },
-              text: "Geolocation hook",
-            ),
-            AppButton(
-              onPressed: () {
-                _goTo(NetworkStatusPage(), context);
-              },
-              text: "Network hook",
-            ),
-            AppButton(
-              onPressed: () {
-                _goTo(TodoPage(), context);
-              },
-              text: "Todo app",
-            ),
-          ],
-        ),
+    return AppContainer(
+      child: CenteredColumn(
+        children: <Widget>[
+          AppButton(
+            onPressed: () {
+              _goTo(AnimationPage(), context);
+            },
+            text: "Animation hook",
+          ),
+          AppButton(
+            onPressed: () {
+              _goTo(GeolocationPage(), context);
+            },
+            text: "Geolocation hook",
+          ),
+          AppButton(
+            onPressed: () {
+              _goTo(NetworkStatusPage(), context);
+            },
+            text: "Network hook",
+          ),
+          AppButton(
+            onPressed: () {
+              _goTo(TodoPage(), context);
+            },
+            text: "Todo app",
+          ),
+        ],
       ),
     );
   }

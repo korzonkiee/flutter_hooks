@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:hooks_examples/common/container.dart';
 import 'package:hooks_examples/network/network_status.dart';
 
 class NetworkStatusPage extends StatelessWidget {
@@ -6,8 +7,8 @@ class NetworkStatusPage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      body: Center(
+    return AppContainer(
+      child: Center(
         child: NetworkStatus(),
       ),
     );
