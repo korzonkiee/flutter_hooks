@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_hooks/flutter_hooks.dart';
 import 'package:hooks_examples/common/button.dart';
+import 'package:hooks_examples/form/form_page.dart';
 import 'package:hooks_examples/geolocation/geolocation_page.dart';
 import 'package:hooks_examples/network/network_status_page.dart';
 import 'package:hooks_examples/todo/todo_page.dart';
@@ -8,12 +9,16 @@ import 'package:hooks_examples/todo/todo_page.dart';
 import 'animation/animation_page.dart';
 import 'common/centered_column.dart';
 import 'common/container.dart';
+import 'mixins/confusing.dart';
 
 void main() => runApp(MyApp());
 
 class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
+    Value value = Value();
+    print(value.get());
+
     return MaterialApp(
       title: 'Flutter Demo',
       theme: ThemeData(
@@ -49,6 +54,12 @@ class MyHomePage extends HookWidget {
               _goTo(NetworkStatusPage(), context);
             },
             text: "Network hook",
+          ),
+          AppButton(
+            onPressed: () {
+              _goTo(FormPage(), context);
+            },
+            text: "Form hook",
           ),
           AppButton(
             onPressed: () {
