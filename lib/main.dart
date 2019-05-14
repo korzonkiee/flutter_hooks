@@ -41,31 +41,31 @@ class MyHomePage extends HookWidget {
             onPressed: () {
               _goTo(AnimationPage(), context);
             },
-            text: "Animation hook",
+            text: "Animation",
           ),
           AppButton(
             onPressed: () {
               _goTo(GeolocationPage(), context);
             },
-            text: "Geolocation hook",
+            text: "Geolocation",
           ),
           AppButton(
             onPressed: () {
               _goTo(NetworkStatusPage(), context);
             },
-            text: "Network hook",
+            text: "Network Status",
           ),
           AppButton(
             onPressed: () {
               _goTo(FormPage(), context);
             },
-            text: "Form hook",
+            text: "Form",
           ),
           AppButton(
             onPressed: () {
               _goTo(TodoPage(), context);
             },
-            text: "Todo app",
+            text: "Todo App",
           ),
         ],
       ),

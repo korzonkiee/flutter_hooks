@@ -2,6 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:flutter_hooks/flutter_hooks.dart';
 import 'package:hooks_examples/common/button.dart';
 import 'package:hooks_examples/common/centered_column.dart';
+import 'package:hooks_examples/common/text.dart';
+import 'package:hooks_examples/common/text_field.dart';
 import 'package:hooks_examples/form/use_register_form.dart';
 
 class RegisterForm extends HookWidget {
@@ -13,19 +15,17 @@ class RegisterForm extends HookWidget {
 
     return CenteredColumn(
       children: <Widget>[
-        TextField(
-          decoration: InputDecoration(
-            hintText: "Email",
-          ),
+        AppTextField(
+          hintText: "Email",
           controller: form.email,
         ),
-        TextField(
-          decoration: InputDecoration(hintText: "Password"),
+        AppTextField(
+          hintText: "Password",
           obscureText: true,
           controller: form.password,
         ),
-        TextField(
-          decoration: InputDecoration(hintText: "Repeat password"),
+        AppTextField(
+          hintText: "Repeat password",
           obscureText: true,
           controller: form.rpassword,
         ),
@@ -41,7 +41,8 @@ class RegisterForm extends HookWidget {
         ),
         Container(
           margin: EdgeInsets.only(top: 16),
-          child: Text(form.error, style: TextStyle(color: Colors.red)),
+          child: AppText(form.error,
+              style: TextStyle(fontSize: 20, color: Colors.red)),
         ),
       ],
     );

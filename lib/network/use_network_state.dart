@@ -5,20 +5,12 @@ bool useNetworkStatus() {
   final connected = useState(true);
 
   useEffect(() {
-    Connectivity().checkConnectivity().then((result) {
-      connected.value = _isConnected(result);
-    });
-
-    print("Subscribing for connectivity changes.");
-
     final subscription = Connectivity()
         .onConnectivityChanged
         .listen((ConnectivityResult result) {
       connected.value = _isConnected(result);
     });
-
     return () {
-      print("Disposing connectivity subscription.");
       subscription.cancel();
     };
   }, []);

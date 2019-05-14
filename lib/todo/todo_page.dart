@@ -1,5 +1,7 @@
 import 'dart:convert';
+import 'package:hooks_examples/common/button.dart';
 import 'package:hooks_examples/common/container.dart';
+import 'package:hooks_examples/common/text_field.dart';
 import 'package:hooks_examples/todo/actions.dart';
 import 'package:hooks_examples/todo/hooks.dart';
 import 'package:provider/provider.dart';
@@ -40,10 +42,8 @@ class TodoPage extends HookWidget {
             padding: const EdgeInsets.all(32.0),
             child: Column(
               children: <Widget>[
-                RaisedButton(
-                    child: Text(
-                      "Add",
-                    ),
+                AppButton(
+                    text: "Add",
                     onPressed: () {
                       store.dispatch(Add(Todo()));
                     }),
@@ -90,7 +90,7 @@ class TodoCell extends HookWidget {
       child: Row(
         children: <Widget>[
           Expanded(
-            child: TextField(
+            child: AppTextField(
               controller: controller,
               onChanged: (val) {
                 store.dispatch(Update(todo..text = val));

@@ -13,8 +13,11 @@ class AppButton extends StatelessWidget {
       textColor: Colors.black,
       padding: const EdgeInsets.all(0.0),
       child: Container(
-        padding: const EdgeInsets.all(10.0),
-        child: Text(this.text),
+        padding: EdgeInsets.all(8.0),
+        child: Text(
+          this.text,
+          style: TextStyle(fontSize: 20),
+        ),
       ),
     );
   }
