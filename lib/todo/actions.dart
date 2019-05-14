@@ -2,32 +2,32 @@ import 'package:hooks_examples/todo/todo.dart';
 
 abstract class Action {}
 
-class ResetAction extends Action {
+class Reset extends Action {
   final List<Todo> todos;
 
-  ResetAction(this.todos);
+  Reset(this.todos);
 }
 
-class AddAction extends Action {
+class Add extends Action {
   final Todo todo;
 
-  AddAction(this.todo);
+  Add(this.todo);
 }
 
-class CompleteTodo extends Action {
+class Complete extends Action {
   final int id;
 
-  CompleteTodo(this.id);
+  Complete(this.id);
 }
 
-class UpdateTodo extends Action {
+class Update extends Action {
   final Todo todo;
 
-  UpdateTodo(this.todo);
+  Update(this.todo);
 }
 
-class DeleteAction extends Action {
+class Delete extends Action {
   final int id;
 
-  DeleteAction(this.id);
+  Delete(this.id);
 }

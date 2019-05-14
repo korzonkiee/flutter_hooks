@@ -21,7 +21,7 @@ class TodoPage extends HookWidget {
         String data = prefs.getString("todos");
         final cachedTodos = Todo.listFromJson(data);
 
-        store.dispatch(ResetAction(cachedTodos));
+        store.dispatch(Reset(cachedTodos));
       });
     }, []);
 
@@ -45,7 +45,7 @@ class TodoPage extends HookWidget {
                       "Add",
                     ),
                     onPressed: () {
-                      store.dispatch(AddAction(Todo()));
+                      store.dispatch(Add(Todo()));
                     }),
                 Expanded(
                   child: Provider.value(
@@ -84,7 +84,7 @@ class TodoCell extends HookWidget {
       direction: DismissDirection.endToStart,
       onDismissed: (dir) {
         if (dir == DismissDirection.endToStart) {
-          store.dispatch(DeleteAction(todo.id));
+          store.dispatch(Delete(todo.id));
         }
       },
       child: Row(
@@ -93,14 +93,14 @@ class TodoCell extends HookWidget {
             child: TextField(
               controller: controller,
               onChanged: (val) {
-                store.dispatch(UpdateTodo(todo..text = val));
+                store.dispatch(Update(todo..text = val));
               },
             ),
           ),
           Checkbox(
             value: todo.completed,
             onChanged: (val) {
-              store.dispatch(CompleteTodo(todo.id));
+              store.dispatch(Complete(todo.id));
             },
           )
         ],
